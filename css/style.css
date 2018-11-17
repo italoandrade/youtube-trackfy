@@ -1,0 +1,47 @@
+.tfy-mark-as-watched {
+  color: #ccc;
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+ytd-grid-video-renderer,
+ytd-compact-video-renderer,
+ytd-video-renderer,
+ytd-playlist-video-renderer {
+  transition: opacity 200ms ease-out;
+}
+
+ytd-grid-video-renderer:hover .tfy-mark-as-watched,
+ytd-compact-video-renderer:hover .tfy-mark-as-watched,
+ytd-video-renderer:hover .tfy-mark-as-watched,
+ytd-playlist-video-renderer:hover .tfy-mark-as-watched {
+  opacity: 1;
+}
+
+ytd-grid-video-renderer:not(:hover).watched,
+ytd-compact-video-renderer:not(:hover).watched,
+ytd-video-renderer:not(:hover).watched,
+ytd-playlist-video-renderer:not(:hover).watched {
+  opacity: 0.2;
+}
+
+.tfy-status-watched {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 2px;
+  color: #fff;
+}
+
+ytd-compact-video-renderer .tfy-mark-as-watched,
+ytd-video-renderer .tfy-mark-as-watched {
+  margin-left: 10px;
+}
+
+.tfy-mark-as-watched-icon {
+  padding: 8px !important;
+}

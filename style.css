@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 13px;
+    color: #212121;
+    font-family: Arial, sans-serif;
+    width: 400px;
+    transition: height 200ms ease-out;
+}
+
+.title {
+    font-weight: 600;
+    color: #424242;
+}
+
+.subtitle {
+    color: #BDBDBD;
+    margin-top: 5px;
+}
+
+.spacing {
+    padding: 10px 0;
+}
+
+.spacing:first-child {
+    padding-top: 0;
+}
+
+.spacing:last-child {
+    padding-bottom: 0;
+}
+
+button {
+    height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    border: none;
+    background-color: #2196F3;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 2px;
+    font-weight: 500;
+    outline: 0;
+    transition: box-shadow 200ms ease-out;
+}
+
+button:hover {
+    box-shadow: inset 2px 2px 0 50px rgba(255, 255, 255, 0.1);
+}
+
+button:active {
+    box-shadow: inset 2px 2px 0 50px rgba(255, 255, 255, 0.2);
+}
+
+button + label {
+    margin-left: 7px;
+}
+
+.message {
+    font-weight: 600;
+    color: #4CAF50;
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+    transition: max-height 200ms ease-out,
+    padding-top 200ms ease-out,
+    opacity 200ms ease-out 200ms,
+    transform 200ms ease-out 200ms;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.message.error {
+    color: #F44336;
+}
+
+.message.show {
+    padding-top: 8px;
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+}
+
+.invisible {
+    position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}

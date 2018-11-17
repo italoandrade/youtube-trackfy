@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trackfy YouTube</title>
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/FileSaver.js"></script>
+    <script src="lib/HugeStorageSync.class.js"></script>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="spacing">
+    <div class="title">Sync browser history</div>
+    <div class="spacing">
+        Get all your <strong>Chrome</strong>'s history of YouTube and mark every video as watched
+        <div class="subtitle">YouTube history is always synced</div>
+    </div>
+    <button id="syncHistory">Sync history</button>
+    <div class="message sync">Synced!</div>
+</div>
+
+<div class="spacing">
+    <div class="title">Backup/Restore</div>
+    <div class="spacing">
+        Backup your list of watched videos for later restoring
+    </div>
+    <button id="backupIds">Save backup</button>
+    <label for="restoreIds">
+        <button id="restoreIdsButton">Restore backup</button>
+    </label>
+    <input id="restoreIds" type="file" class="invisible">
+    <div class="message backup">Backup saved!</div>
+</div>
+
+<div class="spacing">
+    <div class="title">Clear watched videos</div>
+    <div class="spacing">
+        Clear all your watched videos and start from scratch
+        <div class="subtitle">YouTube history will remain synced</div>
+    </div>
+    <button id="clearAll">Clear watched videos</button>
+    <div class="message clear">List cleared!</div>
+</div>
+
+<div class="spacing">
+    <div class="title">Watched videos</div>
+    <div class="spacing">
+        Count: <span id="watchedVideoCount"></span>
+    </div>
+</div>
+</body>
+</html>
