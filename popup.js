@@ -20,7 +20,7 @@ const sync = new HugeStorageSync();
                 await storageSet('watchedVideos', watchedVideos);
             }
 
-            const blob = new Blob([JSON.stringify(watchedVideos)], {type: "text/plain;charset=utf-8"});
+            const blob = new Blob([watchedVideos.join(',')], {type: "text/plain;charset=utf-8"});
             saveAs(blob, 'trackfy-youtube.bkp');
 
             $('.message.backup').html(`Backup saved!`).removeClass('error').addClass('show');
@@ -37,7 +37,7 @@ const sync = new HugeStorageSync();
                 reader.readAsText(file, "UTF-8");
                 reader.onload = async (evt) => {
                     try {
-                        let watchedVideos = evt.target.result.split(',');
+                        let watchedVideos = evt.target.result.replace(/[\[\]"]/g, '').split(',');
                         await storageSet('watchedVideos', watchedVideos);
                         $('.message.backup').html(`Backup restored!`).removeClass('error').addClass('show');
 
@@ -55,7 +55,7 @@ const sync = new HugeStorageSync();
         });
 
         $('#syncHistory').on('click', () => {
-            chrome.history.search({text: 'youtube.com', startTime: 0, maxResults: 99999}, async (results) => {
+            chrome.history.search({text: 'youtube.com', startTime: 0, maxResults: 9999999}, async (results) => {
                 let addCount = 0;
 
                 let watchedVideos = await storageGet('watchedVideos');
